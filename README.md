@@ -197,3 +197,45 @@ break 和 continue
     }
 
     console.log(fib(7))
+    
+arguments
+--
+    function log() {
+        for (let i = 0; i < arguments.length; i++) {
+            console.log(arguments[i]);
+        }
+    }
+    log('abc', 'cba', 'dee')
+
+    var x = 5;
+    function add(a) {
+        var y = 10;
+        console.log("y=" + y)
+        return a + x;
+    };
+    console.log(add(10))
+
+    var num = 100;
+
+    function multiply(num) {
+        return num * 10;
+    }
+
+    console.log(multiply(23))
+
+    console.log(add(20))
+var / let
+--
+    var z = 6;
+    if (z > 2) {
+        console.log(z);
+        var innerZ = 17;
+    }
+    
+    console.log(innerZ);
+    
+    for (let i = 0; i < 10; i++) {
+        console.log(i)
+    }
+    // 不可调用
+    console.log(i);
