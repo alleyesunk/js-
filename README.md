@@ -35,3 +35,46 @@ if ... else
     } else {
         alert('登录失败')
     }
+if ... else if ... else
+--
+    var role = prompt("请输入用户权限")；
+    if (role === "超级管理员") {
+        alert("进入超级管理员界面")；
+    } else if (role === "管理员") {
+        alert("进入管理员界面");
+    } else {
+        alert("进入用户界面")
+    };
+switch case
+--
+    var role = prompt("请输入用户权限")；
+    switch (role) {
+        case "超级管理":
+            alert('超级管理员页面')
+            break;
+        case "管理员":
+            alert('管理员');
+            break;
+        case "特殊用户":
+            alert('特殊用户页面');
+            break;
+        case "一般用户":
+            alert('一般用户页面');
+            break;
+        default:
+            alert("跳转到其他页面")
+    };
+while 循环
+--
+    var password = "";
+    while (password !== '123456') {
+        password = prompt("请输入密码");
+    };
+    console.log('登录成功');
+do while 循环
+--
+    var x = 5;
+    do {
+        console.log(x++)
+    } while (x > 5 && x <= 10)
+    console.log(x)
