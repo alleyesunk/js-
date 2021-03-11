@@ -127,6 +127,7 @@ break 和 continue
         if (num < 0) return;
         return num > 10;
     }
+    
 调用函数
 --
     putInRefrigerator();
@@ -141,3 +142,40 @@ break 和 continue
 
     console.log(testNum(-5));
     console.log(testNum(15));
+    
+
+函表达式
+--
+    console.log(add);
+
+    var plus = add;
+    var res = plus(5, 6);
+    console.log(Request);
+
+    var multiply = function (a, b) {
+        return a * b;
+    }
+    console.log(multiply(1, 5));
+函数和变量提升
+--
+    x = 5;
+    console.log(x);
+    var x = 10;
+    console.log(divide(8, 2))
+    function (divide(8, 2)) {
+        renturn a/b
+    }
+默认参数
+--
+    function greetings(name = "铭心") {
+    console.log('你好' + name);
+    }
+
+    greetings();
+    greetings('张三')
+
+    function greetingWithWeather(name = '铭心', weather) {
+        console.log("你好," + name + "今天是：" + weather)
+    }
+
+    greetingWithWeather(undefined, "晴天");
