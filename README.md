@@ -146,16 +146,13 @@ break 和 continue
 
 函表达式
 --
-    console.log(add);
-
+    add = 5
     var plus = add;
-    var res = plus(5, 6);
-    console.log(Request);
 
     var multiply = function (a, b) {
         return a * b;
     }
-    console.log(multiply(1, 5));
+    console.log(multiply(plus, 5));
 函数和变量提升
 --
     x = 5;
@@ -179,3 +176,24 @@ break 和 continue
     }
 
     greetingWithWeather(undefined, "晴天");
+
+递归
+--
+    function sum(n) {
+    if (n === 1) {
+        return 1;
+    }
+    return n + sum(n - 1)
+    }
+    console.log(sum(5));
+    
+1 1 2 3 5 8 13 ...
+--
+    function fib(num) {
+        if (num <= 1) {
+            return 1;
+        }
+        return fib(num - 1) + fib(num - 2);
+    }
+
+    console.log(fib(7))
