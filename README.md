@@ -2,11 +2,10 @@
 JavaScript基础学习笔记总结
 
 
-/**
+
  * name: 铭心
  * time: 2021/3/11
- * email: 13044407839@163.com
- */
+
 
 
 console.log("true && true", true && true)
@@ -35,21 +34,19 @@ console.log("5 << 1", 5 << 1)
 console.log("5 >> 1", 5 >> 1)
 console.log("~5 >>> 1", ~5 >>> 1)
 
-//三目运算符
+三目运算符
 var temperture = 10;
 console.log(temperture > 15 ? '出门' : '在家');
 var temperture = 16;
 console.log(temperture > 15 ? '出门' : '在家');
 
-//代码块
+代码块
 console.clear()
 {
     var name = '铭心';
     console.log(name);
-
     let age = 15;
     console.log(age)
-
     const YEAR = 2020;
     console.log(YEAR);
 }
