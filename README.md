@@ -3,12 +3,14 @@ JavaScript基础学习笔记总结
 
 * name: 铭心 
 * time: 2021/3/11
+* 持续更新
 
-1. 三目运算符
-`var temperture = 10;
-console.log(temperture > 15 ? '出门' : '在家')
-var temperture = 16;
-console.log(temperture > 15 ? '出门' : '在家')`
+三目运算符
+--
+    var temperture = 10;
+    console.log(temperture > 15 ? '出门' : '在家')
+    var temperture = 16;
+    console.log(temperture > 15 ? '出门' : '在家')
 代码块
 --
     {
