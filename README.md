@@ -78,3 +78,66 @@ do while 循环
         console.log(x++)
     } while (x > 5 && x <= 10)
     console.log(x)
+for 循环
+--
+    for (var i = 0; i <= 10; i++) {
+        console.log(i);
+    };
+    
+    var j = 0;
+    while (j < 10) {
+        console.log(j);
+        j++;
+    };
+    
+break 和 continue
+--
+    for (let i = 0; i < 10; i++) {
+        if (i === 5) {
+            continue; // 跳过5
+        }
+        console.log(i);
+    }
+    
+    for (let i = 0; i < 10; i++) {
+        if (i === 5) {
+            break; // i = 5 停止循环
+        }
+        console.log(i);
+    }
+
+    function putInRefrigerator() {
+        console.log("打开冰箱们");
+        console.log('把大象放进去');
+        console.log('关上冰箱们');
+    }
+函数 ——— 声明函数
+--
+    function putAnythingInRefrigerator(something) {
+        console.log('打开冰箱们');
+        console.log('把' + something + '放进去');
+        console.log('关上冰箱们');
+    }
+
+    function add(a, b) {
+        return a + b;
+    }
+
+    function testNum(num) {
+        if (num < 0) return;
+        return num > 10;
+    }
+调用函数
+--
+    putInRefrigerator();
+    putAnythingInRefrigerator("兔子");
+    add(1, 2);
+    console.log(add(1, 2))
+
+    var result = add(1, 2);
+    console.log(result);
+
+    console.log(add(result, 5));
+
+    console.log(testNum(-5));
+    console.log(testNum(15));
