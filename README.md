@@ -239,3 +239,71 @@ var / let
     }
     // 不可调用
     console.log(i);
+箭头函数
+--
+
+    var greeting = (name, weather) => {
+        console.log("hello" + name + "今天是：" + weather)
+    };
+
+    greeting("铭心", "晴天");
+
+    var increment = x => x + 1;
+    console.log(increment(4));
+闭包
+--
+    function squareSum(a, b) {
+        function square(x) {
+            return x * x;
+        }
+        return square(a) + square(b);
+    }
+    
+    console.log(squareSum(5,6));
+    
+    function person() {
+        let name = "铭心";
+        function getName() {
+            return name;
+        }
+        return getName;
+    }
+    
+    var getName = person();
+    console.log(getName);
+    console.log(getName());
+    console.log(person);
+    console.log(person());
+柯里化
+--
+    function addThreeNums(a, b, c) {
+        return a + b + c;
+    }
+
+    console.log(addThreeNums(1, 2, 3));
+
+    function addThreeNumsCurry(a) {
+        return function (b) {
+            return function (c) {
+                return a + b + c;
+            }
+        }
+    }
+
+    console.log(addThreeNumsCurry(1)(2)(3));
+
+    var fixedTwo = addThreeNumsCurry(1)(2);
+    console.log(fixedTwo(4));
+    console.log(fixedTwo(5));
+    console.log(fixedTwo(6));
+    
+自执行函数
+--
+    var num1 = 10;
+
+    (function () {
+        var num1 = 20;
+        console.log(num1);
+    })();
+
+    console.log(num1)
