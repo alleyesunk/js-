@@ -7,12 +7,15 @@ JavaScript基础学习笔记总结
 
 三目运算符
 --
+```javascript
     var temperture = 10;
     console.log(temperture > 15 ? '出门' : '在家')
     var temperture = 16;
     console.log(temperture > 15 ? '出门' : '在家')
+```
 代码块
 --
+```javascript
     {
         var name = '铭心';
         console.log(name);
@@ -27,16 +30,20 @@ JavaScript基础学习笔记总结
     //不可调用
     console.log(age);
     console.log(YEAR);
+```
 if ... else
 ---
+```javascript
     var passcode = prompt('请输入暗号')
     if (passcode === '天王盖地虎') {
         alert('登录成功')
     } else {
         alert('登录失败')
     }
+```
 if ... else if ... else
 --
+```javascript
     var role = prompt("请输入用户权限")；
     if (role === "超级管理员") {
         alert("进入超级管理员界面")；
@@ -45,8 +52,10 @@ if ... else if ... else
     } else {
         alert("进入用户界面")
     };
+```
 switch case
 --
+```javascript
     var role = prompt("请输入用户权限")；
     switch (role) {
         case "超级管理":
@@ -64,6 +73,7 @@ switch case
         default:
             alert("跳转到其他页面")
     };
+```
 while 循环
 --
     var password = "";
