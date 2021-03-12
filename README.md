@@ -596,3 +596,104 @@ destructuring 操作符
     var [myName, myPosition] = multipleReturns();
     console.log(myName, myPosition);
 ```
+rest 操作符
+--
+```javascript
+    var arr = [1, 2, 3, 4, 5, 6, 7, 8];
+    var [a, b, ...rest] = arr;
+    console.log(a, b, rest);
+
+    var [a, , b, ...rest] = arr;
+    console.log(a, b, rest);
+
+    function variousArgs(...args) {
+        console.log(args);
+    }
+
+    variousArgs(1, 2, 3);
+```
+多维数组
+--
+```javascript
+    var arr = [];
+    for (let i = 0; i < 5; i++) {
+        arr[i] = [];
+        for (let j = 0; j < 4; j++) {
+            arr[i][j] = i + j;
+        }
+    }
+
+    console.log(arr);
+```
+
+创建对象
+--
+```javascript
+    var employee = {
+        name: '铭心',
+        age: 21,
+        position: '前端工程师',
+        signIn: function () {
+            console.log("铭心打卡成功");
+        }
+    };
+
+    var employee2 = new Object();
+    employee2.name = '张三';
+    employee2.signIn = function () {
+        console.log('张三打卡成功');
+    };
+```
+对象属性
+--
+```javascript
+    // 该段代码结合创建对象一同使用
+    console.log(employee.name);
+    console.log(employee["name"]);
+
+    employee.name = '老板';
+    console.log(employee.name);
+    employee['name'] = '大王';
+    console.log(employee['name']);
+
+    console.log(employee2.age);
+    employee2.age = 22;
+    console.log(employee2.age);
+
+    var employee3 = {
+        name: '王五',
+        birthDate: '2000-01-10',
+    };
+
+    console.log(employee3.name + '的生日是：' + employee3.birthDate);
+```
+省略key
+--
+```javascript
+    var name = '铭心';
+    var employee4 = {
+        name,
+        signIn() {
+            console.log('铭心打卡成功')
+        }
+    };
+
+    console.log(employee4.name);
+    console.log(employee4.signIn());
+```
+遍历对象所有属性
+--
+```javascript
+    console.log(Object.keys(employee));
+
+    for (key in employee) {
+        console.log(key);
+    }
+```
+删除对象属性
+--
+```javascript
+    delete employee.name;
+    console.log(employee);
+    console.log(Object.keys(employee));
+```
