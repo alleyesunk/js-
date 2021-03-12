@@ -76,20 +76,25 @@ switch case
 ```
 while 循环
 --
+```javascript
     var password = "";
     while (password !== '123456') {
         password = prompt("请输入密码");
     };
     console.log('登录成功');
+```
 do while 循环
 --
+```javascript
     var x = 5;
     do {
         console.log(x++)
     } while (x > 5 && x <= 10)
     console.log(x)
+```
 for 循环
 --
+```javascript
     for (var i = 0; i <= 10; i++) {
         console.log(i);
     };
@@ -100,8 +105,10 @@ for 循环
         j++;
     };
     
+```
 break 和 continue
 --
+```javascript
     for (let i = 0; i < 10; i++) {
         if (i === 5) {
             continue; // 跳过5
@@ -121,8 +128,10 @@ break 和 continue
         console.log('把大象放进去');
         console.log('关上冰箱们');
     }
+```
 函数 —— 声明函数
 --
+```javascript
     function putAnythingInRefrigerator(something) {
         console.log('打开冰箱们');
         console.log('把' + something + '放进去');
@@ -137,9 +146,10 @@ break 和 continue
         if (num < 0) return;
         return num > 10;
     }
-    
+```    
 函数 —— 调用函数
 --
+```javascript
     putInRefrigerator();
     putAnythingInRefrigerator("兔子");
     add(1, 2);
@@ -152,10 +162,11 @@ break 和 continue
 
     console.log(testNum(-5));
     console.log(testNum(15));
-    
+ ```   
 
 函数 —— 函表达式
 --
+```javascript
     add = 5
     var plus = add;
 
@@ -163,8 +174,10 @@ break 和 continue
         return a * b;
     }
     console.log(multiply(plus, 5));
+```
 函数 —— 变量和函数提升(hoisting)
 --
+```javascript
     x = 5;
     console.log(x);
     var x = 10;
@@ -172,8 +185,10 @@ break 和 continue
     function (divide(8, 2)) {
         renturn a/b
     }
+```
 函数 —— 默认参数
 --
+```javascript
     function greetings(name = "铭心") {
     console.log('你好' + name);
     }
@@ -186,9 +201,10 @@ break 和 continue
     }
 
     greetingWithWeather(undefined, "晴天");
-
+```
 函数 —— 递归
 --
+```javascript
     function sum(n) {
     if (n === 1) {
         return 1;
@@ -207,14 +223,17 @@ break 和 continue
 
     console.log(fib(7))
     
+```
 函数 —— arguments
 --
+```javascript
     function log() {
         for (let i = 0; i < arguments.length; i++) {
             console.log(arguments[i]);
         }
     }
     log('abc', 'cba', 'dee')
+```
 函数 —— 作用域
 --
     var x = 5;
@@ -234,8 +253,10 @@ break 和 continue
     console.log(multiply(23))
 
     console.log(add(20))
+```
 函数 —— var / let 区别
 --
+```javascript
     var z = 6;
     if (z > 2) {
         console.log(z);
@@ -249,8 +270,10 @@ break 和 continue
     }
     // 不可调用
     console.log(i);
+```
 函数 —— 箭头函数
 --
+```javascript
 
     var greeting = (name, weather) => {
         console.log("hello" + name + "今天是：" + weather)
@@ -260,8 +283,10 @@ break 和 continue
 
     var increment = x => x + 1;
     console.log(increment(4));
+```
 函数 —— 闭包
 --
+```javascript
     function squareSum(a, b) {
         function square(x) {
             return x * x;
@@ -284,8 +309,10 @@ break 和 continue
     console.log(getName());
     console.log(person);
     console.log(person());
+```
 函数 —— 柯里化
 --
+```javascript
     function addThreeNums(a, b, c) {
         return a + b + c;
     }
@@ -306,9 +333,10 @@ break 和 continue
     console.log(fixedTwo(4));
     console.log(fixedTwo(5));
     console.log(fixedTwo(6));
-    
+```    
 函数 —— 自执行函数
 --
+```javascript
     var num1 = 10;
 
     (function () {
@@ -317,8 +345,10 @@ break 和 continue
     })();
 
     console.log(num1)
+```
 函数 —— 回调函数
 --
+```javascript
     function request(cb) {
         console.log("请求数据");
         cb();
@@ -334,9 +364,10 @@ break 和 continue
         console.log("执行回调")
         console.log("回调结果：铭心")
     })
-    
+```    
 数组
 --
+```javascript
     var arr1 = [1, 2, 3];
     console.log(arr1);
     var arr2 = new Array(4, 5, 6);
@@ -354,8 +385,10 @@ break 和 continue
     console.log(arrSingle3);
     var arrSingle4 = [0];
     console.log(arrSingle4);
+```
 访问数组
 --
+```javascript
     var arr = [1, 2, 3];
 
     console.log(arr.length);
@@ -364,9 +397,10 @@ break 和 continue
     console.log(arr[2]);
 
     console.log(arr[3]); //undefined
-    
+```    
 添加元素
 --
+```javascript
     var arr = [1, 2, 3];
     
     arr[0] = 4;
@@ -377,9 +411,10 @@ break 和 continue
     arr[8] = 9;
     console.log(arr);
     console.log(arr[7]);
-    
+```    
 删除元素
 --
+```javascript
     var arr = [3, 4, 5];
     arr.length = 2;
     console.log(arr); // [3， 4]
@@ -396,8 +431,10 @@ break 和 continue
 
     arr.splice(1, 0, 9, 10);
     console.log(arr);
+```
 数组遍历
 --
+```javascript
     var arr = [1, 3, 5, 7, 9];
     for (let i = 0; i < arr.length; i++) {
         console.log(arr[i]);
@@ -412,8 +449,10 @@ break 和 continue
         console.log(ele, index, self);
     })
     
+```
 栈模式
 --
+```javascript
     var stack = [1, 2, 3];
     stack.push(4);
     console.log(stack);
@@ -426,4 +465,4 @@ break 和 continue
     console.log(stack);
 
     console.log(stack[stack.length - 4]);
-    
+```
