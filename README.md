@@ -3,6 +3,7 @@ JavaScript基础学习笔记总结
 
 * name: 铭心 
 * time: 2021/3/11
+* 该内容所有代码均可在控制台进行输出查看结果:wink:
 * 持续更新
 
 三目运算符
@@ -236,6 +237,7 @@ break 和 continue
 ```
 函数 —— 作用域
 --
+```javascript
     var x = 5;
     function add(a) {
         var y = 10;
@@ -465,4 +467,132 @@ break 和 continue
     console.log(stack);
 
     console.log(stack[stack.length - 4]);
+```
+队列模式
+--
+```javascript
+    var queue = [1, 2, 3];
+    queue.push(4, 5, 6);
+    console.log(queue);
+    
+    var first = queue.shift();
+    console.log(first);
+    console.log(queue);
+    
+    queue.unshift(10, 11, 12);
+    console.log(queue);
+```
+
+反转数组
+--
+```javascript
+    var arr = [1, 2, 3];
+    console.log(arr.reverse());
+    console.log(arr);
+    
+    console.log(
+    "hello"
+        .split('')
+        .reverse()
+        .join('')
+    )
+    
+```
+数组排序
+--
+```javascript
+    // 正序
+    var arr = [1, 5, 3, 2, 4, 8, 6];
+    arr.sort();
+    console.log(arr);
+    // 倒序
+    arr.sort((a, b) => {
+        if (a > b) {
+            return -1;
+        } else if (a < b) {
+            return 1;
+        } else {
+            return;
+        }
+    })
+
+    arr.sort((a, b) => b - a)
+
+    console.log(arr)
+```
+数组链接
+--
+```javascript
+    var arr1 = [1, 2, 3];
+    var arr2 = [4, 5, 6];
+    console.log(arr1.concat(arr2))
+```
+数组裁切
+--
+```javascript
+    var arr = [1, 2, 3, 4, 5, 6];
+    console.log(arr.slice(1, 2))
+```
+
+数组map
+--
+```javascript
+    var arr = [1, 2, 3, 4, 5];
+    var mappedArr = arr.map(ele => ele * 2);
+    console.log(mappedArr);
+    console.log(arr);
+```
+
+数组 reduce
+--
+```javascript
+    var arr = [1, 2, 3, 4, 5];
+    var result = arr.reduce((previous, current) => previous + current);
+    console.log(result);
+    
+    var result2 = arr.reduce((first, second) => first + second);
+    console.log(result2);
+```
+
+数组过滤
+--
+```javascript
+    var arr = [1, 2, 3, 4, 5, 6];
+    var filteredArr = arr.filter(item => item > 4);
+
+    console.log(filteredArr);
+
+```
+数组测试
+--
+```javascript
+    var arr = [1, 2, 3, 4, 5, 6]
+    var result = arr.every(item => item > 2);
+    console.log(result);
+
+    var resultSum = arr.some(item => item > 5);
+    console.log(resultSum)
+```
+destructuring 操作符
+--
+```javascript
+    var arr = [1, 2, 3];
+    var [a, b, c] = arr;
+    console.log(a, b, c);
+
+    var [d, e] = arr;
+    console.log(d, e);
+
+    var [, f] = arr;
+    console.log(f);
+
+    function multipleReturns() {
+        let name = '铭心';
+        let position = '前端工程师';
+
+        return [name, position];
+    }
+
+    var [myName, myPosition] = multipleReturns();
+    console.log(myName, myPosition);
 ```
