@@ -697,3 +697,18 @@ rest 操作符
     console.log(employee);
     console.log(Object.keys(employee));
 ```
+
+构造函数
+--
+```javascript
+    function Employee (name, position) {
+         this.name = name;
+         this.position = position;
+     }
+
+    var emp1 = new Employee("铭心", "前端工程师");
+    console.log(emp1);
+
+    var emp2 = new Employee("李四", "后端工程师");
+    console.log(emp2);
+```
