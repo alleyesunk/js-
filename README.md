@@ -884,3 +884,443 @@ Object.create
         console.log(key);
     }
 ```
+Spread 操作符
+--
+```javascript
+    var post = {
+        id: 1,
+        title: "标题1",
+        content: '这是内容'
+    };
+    
+    console.log(post);
+    
+    var postClone = { ...post };
+    console.log(postClone);
+    console.log(post === postClone);
+    
+    var post2 = {
+        ...post,
+        author: "铭心"
+    };
+    console.log(post);
+    
+    var arr = [1, 2, 3];
+    var arrClone = [ ...arr ];
+    console.log(arrClone);
+    
+    var arr2 = [...arr, 4, 5, 6];
+    console.log(arr2)
+    function savePost(id, title, content) {
+        console.log("保存了文章：" + id, title, content);
+    }
+    
+    savePost(...[2, "标题", "内容"]);
+```
+destructuring & rest
+--
+```javascript
+    var post = {
+        id: 1,
+        title: "标题",
+        content: "内容",
+        comments: null
+    };
+    
+    var {id, title} = post;
+    console.log(id, title);
+    
+    var { id, title: headline } = post;
+    console.log(id, headline);
+    
+    var { id, title, comments = "没有评论" } = post;
+    console.log(comments);
+
+    var [a, b = 2] = [1];
+    console.log(a, b);
+
+    var post2 = {
+        id: 2,
+        title: "标题2",
+        content: "这是内容",
+        comments: [
+            {
+                userId: 1,
+                comment: "评论1"
+            },
+            {
+                userId: 2,
+                comment: "评论2"
+            },
+            {
+                userId: 3,
+                comment: "评论3"
+            }
+        ]
+    };
+
+    var {
+        comments: [, { comment }]
+    } = post2;
+    console.log(comment);
+
+    function getId(idKey, obj) {
+        let { [idKey]: id } = obj;
+        return id;
+    }
+    console.log(getId("userId", { userId: 3 }));
+
+    var { comments, ...rest } = post2;
+    console.log(rest);
+
+    function savePustObj({ id, title, content, ...rest }) {
+        console.log("保存了文章：", id, title, content);
+        console.log(rest);
+    }
+
+    savePustObj({ id: 4, title: "标题4", content: "内容4", author: "铭心" });
+
+```
+
+值传递与引用传递
+--
+```javascript
+    function byReference(arr) {
+        arr[0] = 5;
+    }
+    var array = [1, 2, 3];
+    byReference(array);
+    console.log(array);
+
+    function byReferenceObj(obj) {
+        obj.title = "标题标题";
+    }
+
+    var post = { id: 1, title: "标题" };
+    byReferenceObj(post);
+    console.log(post);
+
+    function byReferenceStr(str) {
+        str = "abc"
+    }
+    var testStr = "test";
+    byReferenceStr(testStr);
+    console.log(testStr);
+
+    function byValue(num) {
+        num = 10;
+        console.log(num);
+    }
+
+    var testNum = 1;
+    byValue(testNum);
+    console.log(testNum);
+
+```
+call, apply 与 bind
+--
+```javascript
+    var emp = {
+        id: 1,
+        name: "铭心"
+    };
+
+    function printInfo(dep1, dep2, dep3) {
+        console.log("员工姓名：" + this.name, dep1, dep2, dep3);
+    }
+
+    printInfo.call(emp, "技术部", "IT事件部", "总裁办公室");
+    printInfo.apply(emp, ["技术部", "IT事件部", "总裁办公室"]);
+
+    var empPrintInfo = printInfo.bind(emp, "技术部", "IT事件部", "总裁办公室");
+    empPrintInfo();
+```
+定义class
+--
+```javascript
+    class Emplayee{
+        constructor(name, position) {
+            this.name = name;
+            this.position = position;
+        }
+        
+        signIn() {
+            console.log(this.name + "打卡上班");
+        }
+        
+        get info() {
+            return this.name + " " + this.position;
+        }
+        
+        set info(info) {
+            let [name, position] = info.split(" ");
+            this.name = name;
+            this.position = position;
+        }
+    }
+    
+    var emp = new Emplayee("铭心", "前端工程师");
+    console.log(emp)
+    emp.signIn();
+    console.log("职位：" + emp.position);
+
+    console.log(emp.info);
+    emp.info = "李四 后端";
+    console.log(emp.info);
+    console.log(emp.name, emp.position);
+
+    class Manager extends Emplayee {
+        constructor(name, position, dept) {
+            super(name, position);
+            this.dept = dept;
+        }
+
+        signIn() {
+            super.signIn();
+            console.log("额外信息： 经理打卡")
+        }
+    }
+
+    var manager = new Manager("王五", "经理");
+    console.log(manager);
+    manager.signIn();
+
+    manager.dept = "技术部";
+    console.log(manager);
+
+```
+
+字符串-字符串定义与转义
+--
+```javascript
+    var str = "hello!";
+    console.log(str);
+    
+    var str2 = new String("你好");
+    console.log(str2)
+```
+转义字符
+--
+```javascript
+    str = '他说：\"我们出去玩吧!"';
+    console.log(str)
+    for (let i = 0; i < str.length; i++) {
+        console.log(str.charAt(i))
+    }
+
+    for (let c of str) {
+        console.log(c)
+    }
+
+```
+裁切
+--
+```javascript
+    var str = "This is a long string.....";
+
+    console.log(str.slice(0, 4));
+    console.log(str.slice(4));
+    console.log(str.slice(0, -1));
+    console.log(str.slice(-6, -1));
+    console.log(str.slice(4, 1));
+
+    console.log(str.substring(0, 4))
+    console.log(str.substring(4));
+    console.log(str.substring(0, -1));
+    console.log(str.substring(-6, -1));
+    console.log(str.substring(4, 1));
+    
+```
+拼接
+--
+```javascript
+    var str1 = "hello";
+    var str2 = "word";
+
+    console.log(str1 + str2);
+    console.log(str1.concat(str2));
+```
+大小写
+--
+```javascript
+    console.log(str.toUpperCase());
+    console.log("WORD".toLocaleLowerCase());
+```
+去除空格
+--
+```javasscript
+    var str = "  Hello  word";
+    console.log(str.trim());
+```
+模板字符串
+--
+```javascript
+    var longStr = `Lorem ipsun dolor sir amer 
+    consoctetur adipisicing elit
+    .Ques aliquam 
+         laboriosam nist
+                 cuoiditare eaque ratione labore,
+      padit     iusto facere squi qued aliquid. 
+      Expedita quas odio enim a consequunter.`;
+    console.log(longStr);
+
+    var name = "铭心";
+    var str = `你好 ${name}`;
+    console.log(str)
+
+    function greeting(strings, gender) {
+        let genderStr = "";
+        if (gender === "M") {
+            genderStr = "先生";
+        } else if (gender === "F") {
+            genderStr = "女士";
+        }
+        return `${strings[0]}${genderStr}`;
+    }
+
+    var gender = "M";
+    var result = greeting`你好，铭心${gender}`;
+    console.log(result);
+
+```
+创建正则表达式
+--
+```javascript
+    var str = "where when what";
+    var re = /wh/;
+    var re2 = new RegExp('wh');
+    
+    // console.log(re.exec(str));
+    // console.log(re.test(str));
+
+    // console.log(re2.exec(str));
+    // console.log(re2.test(str));
+
+    console.log(re.exec(str));
+    console.log(re.exec(str));
+    console.log(re.exec(str));
+```
+字符匹配
+--
+```javascript
+    var str = `This str contains 123
+     CAPITALIZED letters and _-&^% symbols`;
+
+    console.log(/T/.test(str));
+    console.log(/This/.test(str));
+    console.log(/Thiss/.test(str));
+    console.log(/12/.test(str));
+    console.log(/1234/.test(str));
+    console.log(/_-&/.test(str));
+```
+特殊字符匹配
+--
+```javascript
+    console.log(str.match(/Th.s/g));
+    console.log(str.match(/1.3/g));
+    console.log(str.match(/\d/g));
+    console.log(str.match(/\w/g));
+    console.log(str.match(/\s/g));
+    console.log(str.match(/Th.s/g))
+    console.log("你好".match(/\u4f60/g));
+```
+匹配次数
+--
+```javascript
+    var str = `This str contains 123
+     CAPITALIZED letters and _-&^% symbols`;
+
+    console.log(str.match(/This.*/g));
+    console.log(str.match(/T*/g));
+    console.log(str.match(/t?/g));
+
+    console.log(str.match(/t{2}/g));
+    console.log(str.match(/\d{1,2}/g));
+```
+区间、逻辑和界定符
+--
+```javascript
+    console.log(str.match(/[abc]/g));
+    console.log(str.match(/[0-9]/g));
+    console.log(str.match(/[\-_&\^]/g));
+
+    console.log(str.match(/This|contains/g))
+```
+分组
+--
+```javascript
+    var str = `this that this and that`;
+    console.log(/(th).*(th)/.exec(str));
+
+    var str = `aaaab abb cbbaa`;
+    console.log(str.match(/(aa){2}/g));
+```
+常规正则表达式
+--
+```javascript
+    var mobliLeRe = /^1[3-9]\d[9]/g;
+    console.log(mobliLeRe.test("13123407839"));
+
+    var emailRe = /^([a-zA-Z0-9_\-\.]+@([a_zA-Z0-9_\-\.]))/g;
+    console.log(emailRe.test("admin@163.com"));
+    console.log(emailRe.test("admin@163.coom"));
+```
+字符串替换
+--
+```javascript
+    var str = "This 1is 2an 3apple";
+    console.log(str.replace(/\d+/g, ""));
+
+    var html = `<span>hello</span><div> world</div>`;
+    console.log(html.replace(/<[^>]*>([^<>]*)<\/[^>]*>/g, "$1"));
+```
+正则-字符串分隔
+--
+```javascript
+    var tags = "html, css, javascript";
+    console.log(tags.split(", "));
+
+    var str = "This | is , an & apple";
+    console.log(str.split(/\W+/g));
+```
+内置对象 —— number
+--
+```javascript
+    var strNum = "15";
+    var num = Number.parseInt(strNum);
+
+    console.log(strNum);
+    console.log(num);
+    console.log(typeof num);
+
+    var strNum = "12.34";
+    var num = parseInt(strNum);
+
+    console.log(typeof num);
+
+    var strNum = "abc";
+    var num = parseInt(strNum);
+
+    console.log(num);
+    console.log(isNaN(num));
+
+    var num = 12.33645;
+    var numStr = num.toFixed(2);
+    console.log(numStr);
+
+    console.log(Number.MAX_SAFE_INTEGER);
+    console.log(Number.POSITIVE_INFINITY);
+    console.log(Number.NEGATIVE_INFINITY);
+```
+Math
+--
+```javascript
+    console.log(Math.PI);
+    console.log(Math.abs(-1));
+    console.log(Math.sin(Math.PI / 2));
+    console.log(Math.floor(3.98));
+    console.log(Math.ceil(3.1));
+    console.log(Math.pow(10, 3));
+    console.log(Math.trunc(2.645));
+    console.log(Math.random());
+```
