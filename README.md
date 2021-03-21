@@ -1324,3 +1324,101 @@ Math
     console.log(Math.trunc(2.645));
     console.log(Math.random());
 ```
+Date
+--
+```javascript
+    console.clear();
+    var date = new Date();
+    console.log(date);
+    console.log(date.getFullYear());
+    console.log(date.getMonth());
+    console.log(date.getDay());
+    console.log(date.getDate());
+    console.log(date.getHours());
+    console.log(date.getMinutes());
+    console.log(date.getSeconds());
+    console.log(date.getTime());
+    console.log(date.toDateString());
+    console.log(date.toLocaleDateString())
+
+    date.setFullYear(2022);
+    console.log(date.toLocaleDateString());
+    date.setTime(15881231419);
+    console.log(date.toLocaleDateString()); 
+```
+JSON
+--
+```javascript
+    var postJSON = `{
+        "id": 1,
+        "title": "标题",
+        "comments": [
+            {
+                "userId": 1,
+                "comment": "评论1"
+            },{
+                "userId": 2,
+                "comment": "评论2"
+            }
+        ],
+        "published": true,
+        "author": null
+    }`;
+
+    console.log(JSON.parse(postJSON));
+
+    var person = {
+        id: 1,
+        name: "铭心",
+        skills: ["React", "Java"]
+    };
+
+    console.log(person);
+    console.log(JSON.stringify(person, null, 2));
+
+    var comments = `[
+            {
+                "userId": 1,
+                "comment": "评论1"
+            },{
+                "userId": 2,
+                "comment": "评论2"
+            }
+        ]`
+
+    console.log(JSON.parse(comments));
+```
+set
+--
+```javascript
+    var set = new Set();
+    set.add(1);
+    set.add(3);
+    set.add(6);
+
+    console.log(set);
+
+    set.add(3);
+    console.log(set);
+
+    console.log(set.has(4));
+
+    set.forEach(value => {
+        console.log(value)
+    });
+
+    set.delete(3);
+    console.log(set);
+
+    set.clear();
+    console.log(set);
+
+    var obj1 = { id: 1 };
+    var obj2 = { id: 1 };
+    set.add(obj1);
+    set.add(obj2);
+    console.log(set);
+
+    set.add(obj1);
+    console.log(set);
+```
