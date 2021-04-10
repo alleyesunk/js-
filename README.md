@@ -1422,3 +1422,35 @@ set
     set.add(obj1);
     console.log(set);
 ```
+map
+--
+```javascript
+    var map = new Map();
+
+    var objKey = { key: 2 };
+
+    map.set(1, "值1");
+    map.set(objKey, "值2");
+    map.set("key 3", "值3");
+
+    console.log(map);
+    console.log(map.get(1));
+    console.log(map.get(objKey));
+    console.log(map.get("key 3"));
+
+    console.log(map.has("key 3"));
+
+    map.forEach((value, key) => {
+        console.log(key, value);
+    });
+
+    var iterator = map.entries();
+    console.log(iterator.next());
+
+    for (let [key, value] of map) {
+        console.log(key, value);
+    };
+
+    map.delete(1);
+    console.log(map)
+```
