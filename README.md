@@ -43,7 +43,7 @@ if ... else
 ---
 ```javascript
     var passcode = prompt('请输入暗号')
-    if (passcode === '天王盖地虎') {
+    if (passcode === '清风吹杨柳') {
         alert('登录成功')
     } else {
         alert('登录失败')
